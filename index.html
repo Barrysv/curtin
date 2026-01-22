@@ -3,648 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Year 7 Forces & Motion - Stay Safe Online!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lilita+One&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <title>Year 7 - Stay Safe Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Lilita+One&display=swap" rel="stylesheet">
     <style>
         :root {
             --arctic-deep: #0a3d62;
             --arctic-mid: #1e6091;
             --arctic-bright: #48b5c4;
-            --arctic-light: #7dd3e1;
-            --arctic-pale: #b8e6ef;
             --arctic-frost: #daf3f7;
             --alabaster: #f5f2eb;
-            --alabaster-warm: #ede8dd;
-            --alabaster-shadow: #d9d4c7;
             --accent-coral: #ff6b6b;
             --accent-sun: #feca57;
             --accent-mint: #5cd6a5;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Outfit', sans-serif;
             background: var(--alabaster);
             color: var(--arctic-deep);
-            line-height: 1.6;
-            position: relative;
-            padding: 30px 20px;
+            line-height: 1.4;
+            padding: 15px;
+            font-size: 13px;
         }
 
-        /* Subtle background pattern */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 10% 20%, var(--arctic-frost) 0%, transparent 25%),
-                radial-gradient(circle at 90% 80%, var(--arctic-pale) 0%, transparent 30%);
-            pointer-events: none;
-            z-index: -1;
-        }
+        .container { max-width: 900px; margin: 0 auto; }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* ============================================
-           HEADER - Compact but impactful
-           ============================================ */
+        /* HEADER */
         .header {
             text-align: center;
-            padding: 50px 30px;
-            margin-bottom: 50px;
-            position: relative;
+            padding: 20px;
+            margin-bottom: 15px;
             background: white;
-            border-radius: 30px;
-            box-shadow: 0 15px 50px rgba(10, 61, 98, 0.1);
-            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(10,61,98,0.1);
         }
 
-        .header::before {
-            content: 'YEAR 7';
+        .header h1 {
             font-family: 'Lilita One', cursive;
-            font-size: clamp(80px, 15vw, 150px);
-            color: var(--arctic-frost);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            white-space: nowrap;
-            z-index: 0;
-            opacity: 0.7;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .header-welcome {
-            font-family: 'Caveat', cursive;
-            font-size: clamp(24px, 4vw, 36px);
-            color: var(--arctic-mid);
-            transform: rotate(-2deg);
-            margin-bottom: 5px;
-        }
-
-        .header-title {
-            font-family: 'Lilita One', cursive;
-            font-size: clamp(48px, 10vw, 90px);
-            line-height: 1;
+            font-size: 36px;
             color: var(--arctic-deep);
-            text-shadow: 
-                3px 3px 0 var(--arctic-bright),
-                6px 6px 0 var(--arctic-pale);
-            margin-bottom: 20px;
+            text-shadow: 2px 2px 0 var(--arctic-bright);
         }
 
-        .header-sub {
-            font-size: clamp(14px, 2.5vw, 18px);
-            font-weight: 500;
+        .header p {
+            font-size: 13px;
             color: var(--arctic-mid);
-            background: var(--arctic-frost);
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 50px;
+            margin-top: 5px;
         }
 
-        /* Decorative emojis */
-        .header-deco {
-            position: absolute;
-            font-size: 40px;
-            opacity: 0.8;
-        }
-        .deco-1 { top: 15px; left: 20px; }
-        .deco-2 { top: 15px; right: 20px; }
-        .deco-3 { bottom: 15px; left: 25%; }
-        .deco-4 { bottom: 15px; right: 25%; }
+        /* GRID */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 12px; }
 
-        /* ============================================
-           SECTIONS with overlapping cards
-           ============================================ */
-        .section {
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-header {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .section-number {
-            font-family: 'Lilita One', cursive;
-            font-size: clamp(70px, 12vw, 120px);
-            color: var(--arctic-frost);
-            position: absolute;
-            top: -35px;
-            left: -10px;
-            z-index: 0;
-            line-height: 1;
-        }
-
-        .section-title {
-            font-family: 'Lilita One', cursive;
-            font-size: clamp(24px, 5vw, 36px);
-            color: var(--arctic-deep);
-            position: relative;
-            z-index: 1;
-            display: inline-block;
-            background: var(--alabaster);
-            padding: 8px 25px;
-            border-radius: 16px;
-            box-shadow: 5px 5px 0 var(--arctic-bright);
-        }
-
-        /* Card system */
-        .card-stack {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            position: relative;
-        }
-
+        /* CARDS */
         .card {
             background: white;
-            border-radius: 24px;
-            padding: 30px;
-            position: relative;
-            box-shadow: 0 10px 40px rgba(10, 61, 98, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(10, 61, 98, 0.12);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            border-radius: 24px 24px 0 0;
-            background: linear-gradient(90deg, var(--arctic-bright), var(--arctic-light));
-        }
-
-        /* Card variants */
-        .card-full { grid-column: span 2; }
-        .card-left { transform: rotate(-1deg); }
-        .card-right { transform: rotate(1deg); }
-        
-        .card-overlap-up { 
-            margin-top: -30px; 
-            z-index: 2;
-            position: relative;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(10,61,98,0.07);
+            border-top: 4px solid var(--arctic-bright);
         }
 
         .card-accent {
             background: linear-gradient(135deg, var(--arctic-deep), var(--arctic-mid));
             color: white;
-        }
-        .card-accent::before {
-            background: linear-gradient(90deg, var(--accent-sun), var(--accent-coral));
+            border-top: 4px solid var(--accent-sun);
         }
         .card-accent h3 { color: white; }
 
-        .card-frost {
-            background: var(--arctic-frost);
-        }
-        .card-frost::before {
-            background: linear-gradient(90deg, var(--arctic-mid), var(--arctic-deep));
-        }
-
-        /* Card content */
-        .card-icon {
-            font-size: 42px;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
+        .card-frost { background: var(--arctic-frost); }
 
         .card h3 {
             font-family: 'Lilita One', cursive;
-            font-size: 24px;
+            font-size: 16px;
             color: var(--arctic-deep);
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-
-        /* Lists */
-        .icon-list {
-            list-style: none;
-        }
-
-        .icon-list li {
-            padding: 10px 0;
-            padding-left: 40px;
-            position: relative;
-            font-size: 15px;
-            border-bottom: 2px dashed var(--arctic-pale);
-        }
-
-        .icon-list li:last-child { border-bottom: none; }
-
-        .icon-list li::before {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-        }
-
-        .list-no li::before { content: '❌'; }
-        .list-yes li::before { content: '✅'; }
-        .list-star li::before { content: '⭐'; }
-        .list-alert li::before { content: '🚨'; }
-
-        /* Numbered list */
-        .number-list {
-            list-style: none;
-            counter-reset: steps;
-        }
-
-        .number-list li {
-            padding: 12px 0 12px 55px;
-            position: relative;
-            counter-increment: steps;
-        }
-
-        .number-list li::before {
-            content: counter(steps);
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, var(--arctic-bright), var(--arctic-mid));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Lilita One', cursive;
-            font-size: 18px;
-        }
-
-        /* Alert boxes */
-        .alert-box {
-            border-radius: 16px;
-            padding: 20px;
-            margin: 15px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .alert-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-        }
-
-        .alert-warning {
-            background: linear-gradient(135deg, #fff8e6, #fff3cd);
-        }
-        .alert-warning::before { background: var(--accent-sun); }
-
-        .alert-success {
-            background: linear-gradient(135deg, #e8fff0, #d4ffe4);
-        }
-        .alert-success::before { background: var(--accent-mint); }
-
-        .alert-title {
-            font-family: 'Lilita One', cursive;
-            font-size: 18px;
             margin-bottom: 8px;
         }
 
-        /* Highlight box */
-        .highlight-box {
+        .card h3 .emoji { margin-right: 6px; }
+
+        /* LISTS */
+        .list { list-style: none; font-size: 12px; }
+        .list li { padding: 4px 0 4px 22px; position: relative; }
+        .list li::before { position: absolute; left: 0; font-size: 12px; }
+        .list-no li::before { content: '❌'; }
+        .list-star li::before { content: '⭐'; }
+        .list-alert li::before { content: '🚨'; }
+
+        .num-list { list-style: none; counter-reset: s; font-size: 12px; }
+        .num-list li { padding: 4px 0 4px 28px; position: relative; counter-increment: s; }
+        .num-list li::before {
+            content: counter(s);
+            position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+            width: 20px; height: 20px;
+            background: var(--arctic-bright); color: white;
+            border-radius: 50%; font-size: 11px; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* ALERTS */
+        .alert {
+            background: #fff8e6;
+            border-left: 4px solid var(--accent-sun);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+        .alert-green { background: #e8fff0; border-color: var(--accent-mint); }
+
+        .highlight {
             background: var(--arctic-frost);
-            border: 3px dashed var(--arctic-bright);
-            border-radius: 14px;
-            padding: 18px 22px;
-            margin: 15px 0;
+            border: 2px dashed var(--arctic-bright);
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 12px;
+            margin-top: 8px;
         }
 
-        /* Tips grid */
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .tip-card {
+        /* TIPS ROW */
+        .tips { display: flex; gap: 8px; margin-bottom: 12px; }
+        .tip {
+            flex: 1;
             background: white;
-            border-radius: 16px;
-            padding: 20px 15px;
+            border-radius: 12px;
+            padding: 10px 5px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(10, 61, 98, 0.06);
-            transition: transform 0.2s ease;
+            box-shadow: 0 3px 10px rgba(10,61,98,0.05);
         }
+        .tip-emoji { font-size: 22px; display: block; }
+        .tip-text { font-size: 10px; font-weight: 700; color: var(--arctic-deep); }
 
-        .tip-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .tip-emoji {
-            font-size: 36px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .tip-text {
-            font-weight: 700;
-            font-size: 13px;
-            color: var(--arctic-deep);
-        }
-
-        /* Contact section */
-        .contact-section {
+        /* FOOTER */
+        .footer {
             background: linear-gradient(135deg, var(--arctic-deep), var(--arctic-mid));
-            border-radius: 30px;
-            padding: 40px;
+            border-radius: 16px;
+            padding: 15px;
             color: white;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-
-        .contact-section::before {
-            content: '📧';
-            position: absolute;
-            font-size: 120px;
-            top: -20px;
-            right: -20px;
-            opacity: 0.1;
-        }
-
-        .contact-section h2 {
-            font-family: 'Lilita One', cursive;
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-
-        .contact-section p {
-            font-size: 16px;
-            opacity: 0.9;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .emergency-badge {
+        .footer h3 { font-family: 'Lilita One', cursive; font-size: 18px; margin-bottom: 5px; }
+        .footer p { font-size: 12px; opacity: 0.9; }
+        .emergency {
             display: inline-block;
             background: var(--accent-coral);
-            padding: 15px 30px;
-            border-radius: 50px;
+            padding: 8px 18px;
+            border-radius: 20px;
             font-weight: 800;
-            font-size: 16px;
-            margin-top: 25px;
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            font-size: 12px;
+            margin-top: 10px;
         }
 
-        /* Footer */
-        .footer {
+        .closing {
             text-align: center;
-            padding: 40px 20px;
-        }
-
-        .footer-emoji {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .footer-text {
+            padding: 12px;
             font-family: 'Lilita One', cursive;
-            font-size: clamp(20px, 4vw, 28px);
+            font-size: 16px;
             color: var(--arctic-deep);
         }
 
-        /* Responsive */
-        @media (max-width: 700px) {
-            .card-stack {
-                grid-template-columns: 1fr;
-            }
-            
-            .card-full { grid-column: span 1; }
-            .card-left, .card-right { transform: none; }
-            .card-overlap-up { margin-top: 0; }
-
-            .tips-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .header-deco { display: none; }
-
-            .section-number {
-                font-size: 60px;
-                top: -25px;
-            }
+        @media (max-width: 600px) {
+            .grid, .grid-2 { grid-template-columns: 1fr; }
+            .tips { flex-wrap: wrap; }
+            .tip { flex: 0 0 30%; }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
 
         <!-- HEADER -->
         <header class="header">
-            <span class="header-deco deco-1">⚡</span>
-            <span class="header-deco deco-2">🚀</span>
-            <span class="header-deco deco-3">🔬</span>
-            <span class="header-deco deco-4">⭐</span>
-            
-            <div class="header-content">
-                <div class="header-welcome">👋 Hey there!</div>
-                <h1 class="header-title">YEAR 7!</h1>
-                <p class="header-sub">🛡️ Your Guide to Staying Safe Online in Forces & Motion</p>
-            </div>
+            <h1>👋 Welcome Year 7!</h1>
+            <p>🛡️ Stay Safe Online in Forces & Motion</p>
         </header>
 
-        <!-- SECTION 1: Safe Learning Environment -->
-        <section class="section">
-            <div class="section-header">
-                <span class="section-number">01</span>
-                <h2 class="section-title">🛡️ Your Safe Space</h2>
+        <!-- ROW 1: 3 cards -->
+        <div class="grid">
+            <div class="card">
+                <h3><span class="emoji">🌐</span>Stay on Track</h3>
+                <div class="alert">⚠️ Only visit links from this course. Pop-ups? Close & tell your teacher!</div>
             </div>
 
-            <div class="card-stack">
-                <div class="card card-left">
-                    <div class="card-icon">🌐</div>
-                    <h3>Stay on the Right Path</h3>
-                    <div class="alert-box alert-warning">
-                        <div class="alert-title">⚠️ Important!</div>
-                        <p>Only visit websites linked from this course. If you get redirected or see pop-ups, <strong>close the window</strong> and tell your teacher!</p>
-                    </div>
-                </div>
-
-                <div class="card card-right card-frost">
-                    <div class="card-icon">🔒</div>
-                    <h3>Keep It Private!</h3>
-                    <p><strong>NEVER</strong> share online:</p>
-                    <ul class="icon-list list-no">
-                        <li>Full name, address, phone</li>
-                        <li>School name or location</li>
-                        <li>Photos of you/family/home</li>
-                        <li>Passwords or bank info</li>
-                    </ul>
-                </div>
-
-                <div class="card card-full card-overlap-up">
-                    <div class="highlight-box">
-                        <strong>✅ Safe to share:</strong> Your first name (if needed), your thoughts about learning, and your awesome science ideas!
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2: Be Kind Online -->
-        <section class="section">
-            <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title">💬 Be Kind Online</h2>
+            <div class="card card-frost">
+                <h3><span class="emoji">🔒</span>Keep Private</h3>
+                <ul class="list list-no">
+                    <li>Name, address, phone</li>
+                    <li>School location</li>
+                    <li>Photos of you/family</li>
+                    <li>Passwords</li>
+                </ul>
+                <div class="highlight">✅ <strong>Safe:</strong> First name, ideas!</div>
             </div>
 
-            <div class="card-stack">
-                <div class="card card-full">
-                    <div class="card-icon">🌟</div>
-                    <h3>Respectful Online Behaviour</h3>
-                    <ul class="icon-list list-star">
-                        <li>Be kind and respectful to everyone</li>
-                        <li>Use appropriate language at all times</li>
-                        <li>Think before you post — would you say it face-to-face?</li>
-                        <li>Respect other people's ideas and opinions</li>
-                        <li>Don't join in with or share mean comments</li>
-                    </ul>
-                </div>
+            <div class="card">
+                <h3><span class="emoji">💬</span>Be Kind</h3>
+                <ul class="list list-star">
+                    <li>Be respectful</li>
+                    <li>Appropriate language</li>
+                    <li>Think before posting</li>
+                    <li>Respect others' ideas</li>
+                </ul>
             </div>
-        </section>
+        </div>
 
-        <!-- SECTION 3: Tell a Trusted Adult -->
-        <section class="section">
-            <div class="section-header">
-                <span class="section-number">03</span>
-                <h2 class="section-title">🚨 Speak Up!</h2>
-            </div>
-
-            <div class="card-stack">
-                <div class="card card-left">
-                    <div class="card-icon">🗣️</div>
-                    <h3>Tell a Trusted Adult If...</h3>
-                    <ul class="icon-list list-alert">
-                        <li>Someone asks you to keep secrets</li>
-                        <li>You're asked for personal info</li>
-                        <li>Someone makes you uncomfortable</li>
-                        <li>You see inappropriate content</li>
-                    </ul>
-                </div>
-
-                <div class="card card-right card-frost">
-                    <ul class="icon-list list-alert">
-                        <li>Someone asks to meet in person</li>
-                        <li>You get threatening messages</li>
-                        <li>Someone offers gifts or money</li>
-                    </ul>
-                    <div class="alert-box alert-success">
-                        <div class="alert-title">💪 Remember</div>
-                        <p>Speaking up is <strong>brave</strong> and <strong>important</strong>!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: Cyberbullying -->
-        <section class="section">
-            <div class="section-header">
-                <span class="section-number">04</span>
-                <h2 class="section-title">🛑 Cyberbullying</h2>
+        <!-- ROW 2: 2 cards -->
+        <div class="grid-2">
+            <div class="card">
+                <h3><span class="emoji">🚨</span>Tell an Adult If...</h3>
+                <ul class="list list-alert">
+                    <li>Asked to keep secrets</li>
+                    <li>Asked for personal info</li>
+                    <li>Someone makes you uncomfortable</li>
+                    <li>Bad content or threats</li>
+                    <li>Asked to meet in person</li>
+                </ul>
             </div>
 
-            <div class="card-stack">
-                <div class="card card-full card-accent">
-                    <div class="card-icon">📱</div>
-                    <h3>What is Cyberbullying?</h3>
-                    <p>When someone uses technology to hurt, embarrass, or upset you <strong>over and over again</strong>.</p>
-                    
-                    <h3 style="margin-top: 20px;">If This Happens:</h3>
-                    <ul class="number-list">
-                        <li><strong>Don't respond</strong> or fight back</li>
-                        <li><strong>Save evidence</strong> (take screenshots)</li>
-                        <li><strong>Tell a trusted adult</strong> straight away</li>
-                    </ul>
-                </div>
+            <div class="card card-accent">
+                <h3><span class="emoji">🛑</span>Cyberbullying</h3>
+                <p style="font-size:12px;margin-bottom:8px;">When someone uses tech to hurt you repeatedly.</p>
+                <ul class="num-list">
+                    <li>Don't respond</li>
+                    <li>Screenshot it</li>
+                    <li>Tell an adult</li>
+                </ul>
+                <div class="alert alert-green" style="margin-top:8px;">💪 Speaking up is brave!</div>
             </div>
-        </section>
+        </div>
 
-        <!-- SECTION 5: Tips -->
-        <section class="section">
-            <div class="section-header">
-                <span class="section-number">05</span>
-                <h2 class="section-title">💡 Top Tips!</h2>
-            </div>
-
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <span class="tip-emoji">🧘</span>
-                    <span class="tip-text">Work in a quiet space</span>
-                </div>
-                <div class="tip-card">
-                    <span class="tip-emoji">⏰</span>
-                    <span class="tip-text">Take regular breaks</span>
-                </div>
-                <div class="tip-card">
-                    <span class="tip-emoji">❓</span>
-                    <span class="tip-text">Ask questions!</span>
-                </div>
-                <div class="tip-card">
-                    <span class="tip-emoji">🎉</span>
-                    <span class="tip-text">Celebrate small wins</span>
-                </div>
-                <div class="tip-card">
-                    <span class="tip-emoji">💖</span>
-                    <span class="tip-text">Be kind to yourself</span>
-                </div>
-                <div class="tip-card">
-                    <span class="tip-emoji">🧠</span>
-                    <span class="tip-text">Understanding > Perfection</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section class="contact-section">
-            <h2>📧 Need Help?</h2>
-            <p>Got worries about the course, tech problems, or online safety? Contact your teacher through school email or your LMS.</p>
-            <div class="emergency-badge">🆘 Emergency? Tell a trusted adult IMMEDIATELY</div>
-        </section>
+        <!-- TIPS -->
+        <div class="tips">
+            <div class="tip"><span class="tip-emoji">🧘</span><span class="tip-text">Quiet space</span></div>
+            <div class="tip"><span class="tip-emoji">⏰</span><span class="tip-text">Take breaks</span></div>
+            <div class="tip"><span class="tip-emoji">❓</span><span class="tip-text">Ask questions</span></div>
+            <div class="tip"><span class="tip-emoji">🎉</span><span class="tip-text">Celebrate wins</span></div>
+            <div class="tip"><span class="tip-emoji">💖</span><span class="tip-text">Be kind to you</span></div>
+            <div class="tip"><span class="tip-emoji">🧠</span><span class="tip-text">Understand</span></div>
+        </div>
 
         <!-- FOOTER -->
-        <footer class="footer">
-            <div class="footer-emoji">🔬 🚀 ⚡</div>
-            <p class="footer-text">Stay curious, stay safe, and enjoy exploring forces!</p>
-        </footer>
+        <div class="footer">
+            <h3>📧 Need Help?</h3>
+            <p>Contact your teacher via school email or LMS</p>
+            <div class="emergency">🆘 Emergency? Tell a trusted adult NOW</div>
+        </div>
+
+        <div class="closing">🔬 🚀 ⚡ Stay curious, stay safe!</div>
 
     </div>
-
 </body>
 </html>
